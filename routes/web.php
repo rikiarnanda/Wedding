@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\VendorController;
+use App\Models\Vendor;
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -10,9 +12,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/vendors', [AdminController::class, 'vendors'])->name('vendor');
-    Route::get('/create-vendor', [AdminController::class, 'formVendor'])->name('formVendor');
-    Route::get('/edit-vendor', [AdminController::class, 'editVendor'])->name('editVendor');
+
+    Route::get('/vendor', [VendorController::class, 'vendor'])->name('vendor');
+    Route::get('/vendor/create', [VendorController::class, 'create'])->name('vendor.create');
+    Route::post('/vendor', [VendorController::class, 'store'])->name('vendor.store');
+    Route::get('/vendor/edit/{id}', [VendorController::class, 'editVendor'])->name('editVendor');
+    Route::delete('/vendor/{id}', [VendorController::class, 'deleteVendor'])->name('deleteVendor');
 
     //paket
     Route::get('/paket', [AdminController::class, 'paket'])->name('paket');

@@ -16,23 +16,6 @@ class AdminController extends Controller
         return view('dashboard', []);
     }
 
-    public function vendors()
-    {
-        // $vendors = Vendor::all();
-        return view('vendor.table-vendor', []);
-    }
-
-    public function formVendor()
-    {
-        return view('vendor.create', []);
-    }
-
-    public function editVendor()
-    {
-        // $vendor = Vendor::find($id);
-        return view('vendor.edit', []);
-    }
-
     //paket
     public function paket()
     {

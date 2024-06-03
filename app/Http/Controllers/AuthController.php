@@ -19,7 +19,7 @@ class AuthController extends Controller
         $credentials = $request->only('name', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('vendors');
+            return redirect()->intended('vendor');
         }
 
         return back()->withErrors([
