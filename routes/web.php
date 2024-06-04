@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
-use App\Models\Vendor;
+use App\Http\Controllers\CrewController;
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -16,8 +16,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/vendor', [VendorController::class, 'vendor'])->name('vendor');
     Route::get('/vendor/create', [VendorController::class, 'create'])->name('vendor.create');
     Route::post('/vendor', [VendorController::class, 'store'])->name('vendor.store');
-    Route::get('/vendor/edit/{id}', [VendorController::class, 'editVendor'])->name('editVendor');
-    Route::delete('/vendor/{id}', [VendorController::class, 'deleteVendor'])->name('deleteVendor');
+    Route::get('/vendor/edit/{id}', [VendorController::class, 'editVendor'])->name('vendor.edit');
+    Route::put('/vendor/update/{id}', [VendorController::class, 'updateVendor'])->name('vendor.update');
+    Route::delete('/vendor/{id}', [VendorController::class, 'deleteVendor'])->name('vendor.delete');
 
     //paket
     Route::get('/paket', [AdminController::class, 'paket'])->name('paket');
@@ -25,9 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit-paket', [AdminController::class, 'editPaket'])->name('editPaket');
 
     // Crew
-    Route::get('/crew', [AdminController::class, 'crew'])->name('crew');
-    Route::get('/create-crew', [AdminController::class, 'formCrew'])->name('formCrew');
-    Route::get('/edit-crew', [AdminController::class, 'editCrew'])->name('editCrew');
+    Route::get('/crew', [CrewController::class, 'crew'])->name('crew');
+    Route::get('/crew/create', [CrewController::class, 'create'])->name('crew.create');
+    Route::post('/crew', [CrewController::class, 'store'])->name('crew.store');
+    Route::get('/crew/edit/{id}', [CrewController::class, 'edit'])->name('crew.edit');
+    Route::put('/crew/update/{id}', [CrewController::class, 'update'])->name('crew.update');
+    Route::delete('/crew/{id}', [CrewController::class, 'destroy'])->name('crew.destroy');
 
     // Testimoni
     Route::get('/testimoni', [AdminController::class, 'testimoni'])->name('testimoni');

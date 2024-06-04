@@ -34,24 +34,6 @@ class AdminController extends Controller
         return view('paket.edit', []);
     }
 
-    //crew
-    public function crew()
-    {
-        // $vendors = Vendor::all();
-        return view('crew.table', []);
-    }
-
-    public function formCrew()
-    {
-        return view('crew.create', []);
-    }
-
-    public function editCrew()
-    {
-        // $vendor = Vendor::find($id);
-        return view('crew.edit', []);
-    }
-
     //testimoni
     public function testimoni()
     {

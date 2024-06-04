@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('crews', function (Blueprint $table) {
+        Schema::create('pakets', function (Blueprint $table) {
             $table->id();
-            $table->string('nama'); // Menambahkan kolom nama
-            $table->string('link_gbr'); // Menambahkan kolom gambar
-            $table->string('posisi'); // Menambahkan kolom posisi
-            $table->foreignId('vendor_id')->constrained(); // Menambahkan foreign key yang terhubung ke tabel vendors
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crews');
+        Schema::dropIfExists('pakets');
     }
 };

@@ -20,16 +20,18 @@
         <tbody>
             @foreach ($vendors as $ven)
             <tr>
-                <td>{{ $loop->index + 1 }}</td>
-                <td>{{ $ven->nama_vendor }}</td>
-                <td><img src="{{ Storage::url($ven->gambar) }}" alt="Vendor Image" style="width: 50px;"></td>
-                <td>{{ $ven->lokasi }}</td>
-                <td>
-                    <a href="{{ route('editVendor', ['id' => $ven->id]) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('deleteVendor', ['id' => $ven->id]) }}" method="POST" style="display:inline;">
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">{{ $loop->index + 1 }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $ven->nama_vendor }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">
+                    <a href="{{ asset($ven->link_gbr) }}" target="_blank">Lihat Gambar</a>
+                </td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $ven->lokasi }}</td>
+                <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
+                    <a href="{{ route('vendor.edit', ['id' => $ven->id]) }}" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
+                    <form action="{{ route('vendor.delete', ['id' => $ven->id]) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-500 transition-all">Delete</button>
                     </form>
                 </td>
             </tr>

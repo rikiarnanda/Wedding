@@ -34,13 +34,40 @@ class VendorController extends Controller
             'lokasi' => $request->lokasi
         ]);
 
-        return redirect()->route('vendor.create')->with('success', 'Vendor added successfully.');
+        return redirect()->route('vendor')->with('success', 'Vendor added successfully.');
     }
 
     public function editVendor($id)
     {
         $vendor = Vendor::find($id);
+        if (!$vendor) {
+            return redirect()->route('vendor')->with('error', 'Vendor not found.');
+        }
         return view('vendor.edit', compact('vendor'));
+    }
+
+    public function updateVendor(Request $request, $id)
+    {
+        $request->validate([
+            'nama_vendor' => 'required',
+            'gambar' => 'image|mimes:jpeg,png,jpg|max:3072', // Optional, 3MB = 3072KB
+            'lokasi' => 'required'
+        ]);
+
+        $vendor = Vendor::find($id);
+        if (!$vendor) {
+            return redirect()->route('vendor')->with('error', 'Vendor not found.');
+        }
+
+        $vendor->nama_vendor = $request->nama_vendor;
+        $vendor->lokasi = $request->lokasi;
+        if ($request->hasFile('gambar')) {
+            $path = $request->file('gambar')->store('public/vendor');
+            $vendor->gambar = $path;
+        }
+        $vendor->save();
+
+        return redirect()->route('vendor')->with('success', 'Vendor updated successfully.');
     }
 
     public function deleteVendor($id)
