@@ -84,7 +84,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('formPaket') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('paket.create') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     Tambah Paket
                                 </a>
                             </li>
@@ -113,7 +113,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('formTestimoni') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('testimoni.create') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     Tambah Testimoni
                                 </a>
                             </li>

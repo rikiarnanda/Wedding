@@ -11,7 +11,7 @@
         <thead class="bg-gray-300">
             <tr>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 w-10">No</th>
-                <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Nama Pakaet</th>
+                <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Nama Paket</th>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Gambar</th>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Detail</th>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Harga</th>
@@ -20,22 +20,24 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($pakets as $pak)
             <tr>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">1</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">nama</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">link gambar</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">detail</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">harga</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">vendor</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">{{ $loop->index + 1 }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->nama_paket }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400"><a href="{{ asset($pak->gbr_paket) }}" target="_blank">Lihat Gambar</a></td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->detail }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->harga }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->vendor->nama_vendor ?? 'Vendor Tidak Ditemukan' }}</td>
                 <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
-                    <a href="{{ route('editPaket') }}" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
-                    <form method="POST" action="#" style="display:inline;">
+                    <a href="{{ route('paket.edit', ['id' => $pak->id]) }}" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
+                    <form method="POST" action="{{ route('paket.destroy', ['id' => $pak->id]) }}" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-500 transition-all">Delete</button>
                     </form>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

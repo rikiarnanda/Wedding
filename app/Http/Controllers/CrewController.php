@@ -13,6 +13,7 @@ class CrewController extends Controller
         $crews = Crew::all();
         return view('crew.table', compact('crews'));
     }
+
     public function create()
     {
         $vendors = Vendor::all(); // Get all vendors for dropdown in form

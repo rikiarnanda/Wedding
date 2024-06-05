@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Crew extends Model
+class Testimoni extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'nama',
-        'link_gbr',
-        'posisi',
-        'vendor_id'
+        'testimoni',
+        'paket_id'
     ];
 
-    public function vendor()
+    public function paket()
     {
-        return $this->belongsTo(Vendor::class);
+        return $this->belongsTo(Paket::class);
     }
 }

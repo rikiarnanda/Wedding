@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('crews', function (Blueprint $table) {
             $table->id();
-            $table->string('nama'); // Menambahkan kolom nama
-            $table->string('link_gbr'); // Menambahkan kolom gambar
-            $table->string('posisi'); // Menambahkan kolom posisi
-            $table->foreignId('vendor_id')->constrained(); // Menambahkan foreign key yang terhubung ke tabel vendors
+            $table->string('nama');
+            $table->string('link_gbr');
+            $table->string('posisi');
+            $table->foreignId('vendor_id')
+                ->constrained('vendors') // Pastikan ini mengacu pada nama tabel yang benar
+                ->onDelete('cascade')   // CASCADE pada DELETE
+                ->onUpdate('cascade');  // CASCADE pada UPDATE
             $table->timestamps();
         });
     }

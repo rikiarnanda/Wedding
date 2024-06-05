@@ -27,7 +27,9 @@
                     <a href="{{ asset($cre->link_gbr) }}" target="_blank">Lihat Gambar</a>
                 </td>
                 <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $cre->posisi }}</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $cre->vendor_id }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">
+                    {{ $cre->vendor->nama_vendor ?? 'Vendor tidak ditemukan' }}
+                </td>
                 <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
                     <a href="{{ route('crew.edit', ['id' => $cre->id]) }}" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
                     <form method="POST" action="{{ route('crew.destroy', ['id' => $cre->id]) }}" style="display:inline;">

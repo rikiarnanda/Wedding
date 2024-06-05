@@ -13,4 +13,14 @@ class Vendor extends Model
     {
         return $this->hasMany(Crew::class);
     }
+
+    public function pakets()
+    {
+        return $this->hasMany(Paket::class);
+    }
+
+    public function testimonis()
+    {
+        return $this->hasMany(Testimoni::class);
+    }
 }

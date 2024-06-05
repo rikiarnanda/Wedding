@@ -11,24 +11,26 @@
         <thead class="bg-gray-300">
             <tr>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 w-10">No</th>
-                <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Isi</th>
+                <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Testimoni</th>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Nama Paket</th>
                 <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Action</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($testimonis as $tes)
             <tr>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">1</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">isi</td>
-                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">nama paket</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">{{ $loop->index + 1 }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $tes->testimoni }}</td>
+                <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $tes->paket->nama_paket ?? 'Paket Tidak Ditemukan' }}</td>
                 <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
-                    <form method="POST" action="#" style="display:inline;">
+                    <form method="POST" action="{{ route('testimoni.destroy', ['id' => $tes->id]) }}" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-500 transition-all">Delete</button>
                     </form>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

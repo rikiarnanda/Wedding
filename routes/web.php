@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\CrewController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\TestimoniController;
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -20,10 +22,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/vendor/update/{id}', [VendorController::class, 'updateVendor'])->name('vendor.update');
     Route::delete('/vendor/{id}', [VendorController::class, 'deleteVendor'])->name('vendor.delete');
 
-    //paket
-    Route::get('/paket', [AdminController::class, 'paket'])->name('paket');
-    Route::get('/create-paket', [AdminController::class, 'formPaket'])->name('formPaket');
-    Route::get('/edit-paket', [AdminController::class, 'editPaket'])->name('editPaket');
+    // Paket
+    Route::get('/paket', [PaketController::class, 'paket'])->name('paket');
+    Route::get('/paket/create', [PaketController::class, 'create'])->name('paket.create');
+    Route::post('/paket', [PaketController::class, 'store'])->name('paket.store');
+    Route::get('/paket/edit/{id}', [PaketController::class, 'edit'])->name('paket.edit');
+    Route::put('/paket/update/{id}', [PaketController::class, 'update'])->name('paket.update');
+    Route::delete('/paket/{id}', [PaketController::class, 'destroy'])->name('paket.destroy');
 
     // Crew
     Route::get('/crew', [CrewController::class, 'crew'])->name('crew');
@@ -34,9 +39,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/crew/{id}', [CrewController::class, 'destroy'])->name('crew.destroy');
 
     // Testimoni
-    Route::get('/testimoni', [AdminController::class, 'testimoni'])->name('testimoni');
-    Route::get('/create-testimoni', [AdminController::class, 'formTestimoni'])->name('formTestimoni');
-    Route::get('/edit-testimoni', [AdminController::class, 'editTestimoni'])->name('editTestimoni');
+    Route::get('/testimoni', [TestimoniController::class, 'testimoni'])->name('testimoni');
+    Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('testimoni.create');
+    Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
+    Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
 });
 
 Route::get('/', function () {
