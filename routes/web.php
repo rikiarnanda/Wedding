@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\CrewController;
 use App\Http\Controllers\PaketController;
@@ -12,8 +13,13 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/crew', [HomeController::class, 'crew'])->name('dashboard.crew');
+Route::get('/dashboard/vendor', [HomeController::class, 'vendor'])->name('dashboard.vendor');
+Route::get('/dashboard/paket', [HomeController::class, 'paket'])->name('dashboard.paket');
+
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/vendor', [VendorController::class, 'vendor'])->name('vendor');
     Route::get('/vendor/create', [VendorController::class, 'create'])->name('vendor.create');
@@ -46,5 +52,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('dashboard');
 });
