@@ -48,8 +48,6 @@
     </div>
     @include('layouts.footer')
 </body>
-<<<<<<< HEAD
-=======
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
@@ -80,5 +78,4 @@
     // let paginateCurrButton = document.querySelector('.dt-paging-button.current')
 </script>
 
->>>>>>> d4c0a063ae4cf8a31ef1164f5af85894dc1dc920
 </html>
