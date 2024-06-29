@@ -6,8 +6,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\CrewController;
+use App\Http\Controllers\DokumentasiController;
+use App\Http\Controllers\KonsepController;
+use App\Http\Controllers\DekorasiController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\BandController;
+use App\Http\Controllers\MUAController;
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -49,6 +54,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('testimoni.create');
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
     Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
+
+    // Konsep
+    Route::resource('/konsep', KonsepController::class);
+
+    // Band
+    Route::resource('/band', BandController::class);
+
+    // Dekorasi
+    Route::resource('/dekorasi', DekorasiController::class);
+
+    // Dokumentasi
+    Route::resource('/dokumentasi', DokumentasiController::class);
+
+    // MUA
+    Route::resource('/MUA', MUAController::class);
 });
 
 Route::get('/', function () {
