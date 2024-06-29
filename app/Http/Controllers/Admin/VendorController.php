@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
 
@@ -20,22 +21,22 @@ class VendorController extends Controller
 
     public function store(Request $request)
     {
-    $request->validate([
-        'nama_vendor' => 'required',
-        'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072',
-        'lokasi' => 'required'
-    ]);
+        $request->validate([
+            'nama_vendor' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072',
+            'lokasi' => 'required'
+        ]);
 
-    $path = $request->file('gambar')->store('vendor', 'public');
-    $filename = basename($path);
+        $path = $request->file('gambar')->store('vendor', 'public');
+        $filename = basename($path);
 
-    Vendor::create([
-        'nama_vendor' => $request->nama_vendor,
-        'gambar' => $filename,
-        'lokasi' => $request->lokasi
-    ]);
+        Vendor::create([
+            'nama_vendor' => $request->nama_vendor,
+            'gambar' => $filename,
+            'lokasi' => $request->lokasi
+        ]);
 
-    return redirect()->route('vendor')->with('success', 'Vendor added successfully.');
+        return redirect()->route('vendor')->with('success', 'Vendor added successfully.');
     }
 
     public function editVendor($id)

@@ -2,17 +2,17 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\VendorController;
-use App\Http\Controllers\CrewController;
-use App\Http\Controllers\DokumentasiController;
-use App\Http\Controllers\KonsepController;
-use App\Http\Controllers\DekorasiController;
-use App\Http\Controllers\PaketController;
-use App\Http\Controllers\TestimoniController;
-use App\Http\Controllers\BandController;
-use App\Http\Controllers\MUAController;
+use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\CrewController;
+use App\Http\Controllers\Admin\DokumentasiController;
+use App\Http\Controllers\Admin\KonsepController;
+use App\Http\Controllers\Admin\DekorasiController;
+use App\Http\Controllers\Admin\PaketController;
+use App\Http\Controllers\Admin\TestimoniController;
+use App\Http\Controllers\Admin\BandController;
+use App\Http\Controllers\Admin\MUAController;
 use App\Http\Controllers\OrderController;
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
@@ -96,6 +96,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/mua/edit/{id}', [MUAController::class, 'editMUA'])->name('mua.edit');
     Route::put('/mua/update/{id}', [MUAController::class, 'updateMUA'])->name('mua.update');
     Route::delete('/mua/{id}', [MUAController::class, 'deleteMUA'])->name('mua.delete');
+
+    //Order
+    Route::resource('/order', OrderController::class);
 });
 
 Route::get('/', function () {

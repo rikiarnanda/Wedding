@@ -46,8 +46,7 @@
                 <a href="{{ route('dashboard.paket') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Paket</a>
                 @auth
                 @if(auth()->user())
-                <!-- @if(auth()->user()->role == 'buyer') -->
-                <a href="{{ route('order.user.index') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
+                <a href="{{ route('order.index') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
                 @endif
                 @endauth
             </div>
@@ -59,21 +58,14 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden">
+        <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 bg-white border border-gray-300 rounded-md shadow-md">
                 <a href="{{ route('dashboard.vendor') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Vendor</a>
                 <a href="{{ route('dashboard.crew') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Crew</a>
                 <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paket</a>
-                <!-- @auth
-                @if(auth()->user()->role == 'buyer')
-                <a href="{{ route('dashboard.order') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
-                @endif
-                @endauth -->
             </div>
         </div>
     </nav>
-
-
 
     <div class="pt-16">
         <div class="container mx-auto px-4 py-8">
@@ -88,7 +80,6 @@
             <path fill="#b0bec5" d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z" />
             <path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z" />
         </svg>
-
     </a>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
