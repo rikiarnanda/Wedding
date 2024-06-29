@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('testimoni');
+            $table->foreignId('paket_id')
+                ->constrained('pakets') // Pastikan ini mengacu pada nama tabel yang benar
+                ->onDelete('cascade')   // CASCADE pada DELETE
+                ->onUpdate('cascade');
             $table->timestamps();
         });
-    }    
+    }
 
     /**
      * Reverse the migrations.
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('testimonis');
     }
 };

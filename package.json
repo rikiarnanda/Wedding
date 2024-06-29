@@ -8,7 +8,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-  "build": "vite build"
+        "build": "vite build"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.19",
@@ -16,6 +16,7 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.38",
-        "tailwindcss": "^3.4.3"
+        "tailwindcss": "^3.4.3",
+        "vite": "^5.2.12"
     }
 }
