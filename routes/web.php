@@ -13,7 +13,9 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\MUAController;
+use App\Http\Controllers\OrderController;
 
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -69,6 +71,9 @@ Route::middleware('auth')->group(function () {
 
     // MUA
     Route::resource('/MUA', MUAController::class);
+
+    // Order
+    Route::resource('/order', OrderController::class);
 });
 
 Route::get('/', function () {

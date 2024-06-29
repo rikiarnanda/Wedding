@@ -41,14 +41,15 @@
                 <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300">Wedding Organizer</a>
             </div>
             <div class="hidden md:flex space-x-4">
-                <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Vendor</a>
+                <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Produk</a>
                 <a href="{{ route('dashboard.crew') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Crew</a>
-                <!-- <a href="{{ route('dashboard.paket') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Paketan</a>
+                <a href="{{ route('dashboard.paket') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Paket</a>
                 @auth
-                @if(auth()->user()->role == 'buyer')
-                <a href="{{ route('dashboard.order') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
+                @if(auth()->user())
+                <!-- @if(auth()->user()->role == 'buyer') -->
+                <a href="{{ route('order.user.index') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
                 @endif
-                @endauth -->
+                @endauth
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
@@ -62,7 +63,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 bg-white border border-gray-300 rounded-md shadow-md">
                 <a href="{{ route('dashboard.vendor') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Vendor</a>
                 <a href="{{ route('dashboard.crew') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Crew</a>
-                <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paketan</a>
+                <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paket</a>
                 <!-- @auth
                 @if(auth()->user()->role == 'buyer')
                 <a href="{{ route('dashboard.order') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>

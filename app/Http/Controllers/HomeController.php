@@ -33,4 +33,5 @@ class HomeController extends Controller
         $pakets = Paket::all();
         return view('landing_page.paket', compact('pakets'));
     }
+
 }

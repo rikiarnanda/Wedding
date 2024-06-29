@@ -9,12 +9,12 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return view('orderindex');
+        return view('order.user.index');
     }
 
     public function create()
     {
-        return view('order.create');
+        return view('order.user.create');
     }
 
     public function store(Request $request)

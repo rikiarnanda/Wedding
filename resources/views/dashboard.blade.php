@@ -4,20 +4,14 @@
 
 @section('content')
 <!-- Section: Hero -->
-<section x-data="{ show: false }" x-intersect="show = true" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" class="min-h-screen flex items-center bg-white">
-    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center px-4 py-12">
-        <div class="w-full md:w-1/2 text-center md:text-left">
-            <h1 class="text-4xl font-bold text-gray-900">Wedding Organizer Terbaik di MEDAN</h1>
-            <p class="text-gray-600 my-4 w-1/2">Beli cincin di pasar lama Cincin cantik untuk si dia, Kenalin ini Wedding Organizer Jamin
-                buat acara wedding jadi ceria.</p>
-            <button class="bg-yellow-500 text-white px-6 py-3 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Hubungi
-                Kami</button>
-        </div>
-        <div class="w-full md:w-1/2">
-            <img src="{{ asset('images/hero.jpg') }}" alt="Wedding Organizer" class="w-full h-auto rounded-lg shadow-lg">
-        </div>
+<div class="h-[450px] flex flex-row justify-start items-end bg-cover" style="background-image: url('images/hero.jpg'); background-position: center 80%;">
+    <div class="w-[600px] mb-10 ml-10 p-5 flex flex-col justify-end text-center bg-white bg-opacity-85 shadow-md border border-gray-600 rounded-lg md:text-left">
+        <h1 class="text-3xl font-bold text-gray-900">KIKI Wedding Terbaik di MEDAN</h1>
+        <p class="text-gray-600 my-4">Beli cincin di pasar lama Cincin cantik untuk si dia, Kenalin ini Wedding Organizer Jamin buat acara wedding jadi ceria.</p>
+        <button class="w-fit bg-yellow-500 text-white px-3 py-2 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Hubungi Kami</button>
     </div>
-</section>
+</div>
+
 
 <!-- Section: Existing Cards -->
 <section x-data="{ show: false }" x-intersect="show = true" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" class="min-h-screen flex items-center py-12 bg-gray-100">

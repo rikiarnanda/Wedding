@@ -60,7 +60,6 @@
                 }
             }
         });
-
         // Remove unnecessary labels
         let labelSearch = document.querySelector('label[for="dt-search-0"]');
         if (labelSearch) {
