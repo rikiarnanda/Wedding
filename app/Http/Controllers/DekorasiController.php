@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Dekorasi;
 
 class DekorasiController extends Controller
 {
-    public function index()
+    public function dekorasi()
     {
-        return view('dekorasi.index');
+        $dekorasis = Dekorasi::all();
+        return view('dekorasi.index', compact('dekorasis'));
     }
 
     public function create()
@@ -19,20 +20,62 @@ class DekorasiController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072' // 3MB = 3072KB
+        ]);
+
+        $path = $request->file('gambar')->store('dekorasi', 'public');
+        $filename = basename($path);
+
+        Dekorasi::create([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'gambar' => $filename,
+        ]);
+
+        return redirect()->route('dekorasi')->with('success', 'dekorasi added successfully.');
     }
 
-    public function edit()
+    public function editDekorasi($id)
     {
-        return view('dekorasi.edit');
+        $dekorasi = Dekorasi::find($id);
+        if (!$dekorasi) {
+            return redirect()->route('dekorasi')->with('error', 'dekorasi not found.');
+        }
+        return view('dekorasi.edit', compact('dekorasi'));
     }
 
-
-    public function update(Request $request, $id)
+    public function updateDekorasi(Request $request, $id)
     {
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'image|mimes:jpeg,png,jpg|max:3072', // Optional, 3MB = 3072KB
+        ]);
+
+        $dekorasi = Dekorasi::find($id);
+        if (!$dekorasi) {
+            return redirect()->route('dekorasi')->with('error', 'dekorasi not found.');
+        }
+
+        $dekorasi->nama = $request->nama;
+        $dekorasi->deskripsi = $request->deskripsi;
+        if ($request->hasFile('gambar')) {
+            $path = $request->file('gambar')->store('dekorasi', 'public');
+            $filename = basename($path);
+            $dekorasi->gambar = $filename;
+        }
+        $dekorasi->save();
+
+        return redirect()->route('dekorasi')->with('success', 'dekorasi updated successfully.');
     }
 
-
-    public function destroy()
+    public function deleteDekorasi($id)
     {
+        $dekorasi = Dekorasi::find($id);
+        $dekorasi->delete();
+        return redirect()->route('dekorasi')->with('success', 'dekorasi deleted successfully.');
     }
 }

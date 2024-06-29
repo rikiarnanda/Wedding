@@ -20,21 +20,22 @@ class VendorController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_vendor' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072', // 3MB = 3072KB
-            'lokasi' => 'required'
-        ]);
+    $request->validate([
+        'nama_vendor' => 'required',
+        'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072',
+        'lokasi' => 'required'
+    ]);
 
-        $path = $request->file('gambar')->store('public/vendor');
+    $path = $request->file('gambar')->store('vendor', 'public');
+    $filename = basename($path);
 
-        Vendor::create([
-            'nama_vendor' => $request->nama_vendor,
-            'gambar' => $path,
-            'lokasi' => $request->lokasi
-        ]);
+    Vendor::create([
+        'nama_vendor' => $request->nama_vendor,
+        'gambar' => $filename,
+        'lokasi' => $request->lokasi
+    ]);
 
-        return redirect()->route('vendor')->with('success', 'Vendor added successfully.');
+    return redirect()->route('vendor')->with('success', 'Vendor added successfully.');
     }
 
     public function editVendor($id)
@@ -62,8 +63,9 @@ class VendorController extends Controller
         $vendor->nama_vendor = $request->nama_vendor;
         $vendor->lokasi = $request->lokasi;
         if ($request->hasFile('gambar')) {
-            $path = $request->file('gambar')->store('public/vendor');
-            $vendor->gambar = $path;
+            $path = $request->file('gambar')->store('vendor', 'public');
+            $filename = basename($path);
+            $vendor->gambar = $filename;
         }
         $vendor->save();
 

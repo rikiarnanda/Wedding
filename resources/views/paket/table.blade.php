@@ -14,7 +14,6 @@
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 w-10">No</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Nama Paket</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Gambar</th>
-                    <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Detail</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Harga</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Vendor</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Action</th>
@@ -26,7 +25,6 @@
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">{{ $loop->index + 1 }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->nama_paket }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400"><a href="{{ asset($pak->gbr_paket) }}" target="_blank">Lihat Gambar</a></td>
-                    <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->detail }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->harga }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $pak->vendor->nama_vendor ?? 'Vendor Tidak Ditemukan' }}</td>
                     <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">

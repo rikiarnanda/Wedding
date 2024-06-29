@@ -58,22 +58,44 @@ Route::middleware('auth')->group(function () {
     Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
 
     // Konsep
-    Route::resource('/konsep', KonsepController::class);
+    Route::get('/konsep', [KonsepController::class, 'konsep'])->name('konsep');
+    Route::get('/konsep/create', [KonsepController::class, 'create'])->name('konsep.create');
+    Route::post('/konsep', [KonsepController::class, 'store'])->name('konsep.store');
+    Route::get('/konsep/edit/{id}', [KonsepController::class, 'editKonsep'])->name('konsep.edit');
+    Route::put('/konsep/update/{id}', [KonsepController::class, 'updateKonsep'])->name('konsep.update');
+    Route::delete('/konsep/{id}', [KonsepController::class, 'deleteKonsep'])->name('konsep.delete');
 
     // Band
-    Route::resource('/band', BandController::class);
+    Route::get('/band', [BandController::class, 'band'])->name('band');
+    Route::get('/band/create', [BandController::class, 'create'])->name('band.create');
+    Route::post('/band', [BandController::class, 'store'])->name('band.store');
+    Route::get('/band/edit/{id}', [BandController::class, 'editBand'])->name('band.edit');
+    Route::put('/band/update/{id}', [BandController::class, 'updateBand'])->name('band.update');
+    Route::delete('/band/{id}', [BandController::class, 'deleteBand'])->name('band.delete');
 
     // Dekorasi
-    Route::resource('/dekorasi', DekorasiController::class);
+    Route::get('/dekorasi', [DekorasiController::class, 'dekorasi'])->name('dekorasi');
+    Route::get('/dekorasi/create', [DekorasiController::class, 'create'])->name('dekorasi.create');
+    Route::post('/dekorasi', [DekorasiController::class, 'store'])->name('dekorasi.store');
+    Route::get('/dekorasi/edit/{id}', [DekorasiController::class, 'editDekorasi'])->name('dekorasi.edit');
+    Route::put('/dekorasi/update/{id}', [DekorasiController::class, 'updateDekorasi'])->name('dekorasi.update');
+    Route::delete('/dekorasi/{id}', [DekorasiController::class, 'deleteDekorasi'])->name('dekorasi.delete');
 
     // Dokumentasi
-    Route::resource('/dokumentasi', DokumentasiController::class);
+    Route::get('/dokumentasi', [DokumentasiController::class, 'dokumentasi'])->name('dokumentasi');
+    Route::get('/dokumentasi/create', [DokumentasiController::class, 'create'])->name('dokumentasi.create');
+    Route::post('/dokumentasi', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
+    Route::get('/dokumentasi/edit/{id}', [DokumentasiController::class, 'editDokumentasi'])->name('dokumentasi.edit');
+    Route::put('/dokumentasi/update/{id}', [DokumentasiController::class, 'updateDokumentasi'])->name('dokumentasi.update');
+    Route::delete('/dokumentasi/{id}', [DokumentasiController::class, 'deleteDokumentasi'])->name('dokumentasi.delete');
 
     // MUA
-    Route::resource('/MUA', MUAController::class);
-
-    // Order
-    Route::resource('/order', OrderController::class);
+    Route::get('/mua', [MUAController::class, 'mua'])->name('mua');
+    Route::get('/mua/create', [MUAController::class, 'create'])->name('mua.create');
+    Route::post('/mua', [MUAController::class, 'store'])->name('mua.store');
+    Route::get('/mua/edit/{id}', [MUAController::class, 'editMUA'])->name('mua.edit');
+    Route::put('/mua/update/{id}', [MUAController::class, 'updateMUA'])->name('mua.update');
+    Route::delete('/mua/{id}', [MUAController::class, 'deleteMUA'])->name('mua.delete');
 });
 
 Route::get('/', function () {
