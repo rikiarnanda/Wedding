@@ -9,7 +9,13 @@ class Dekorasi extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama_dekorasi',
-        'harga'
+        'nama',
+        'deskripsi',
+        'gambar',
     ];
+
+    public function paket()
+    {
+        return $this->hasMany(Paket::class);
+    }
 }

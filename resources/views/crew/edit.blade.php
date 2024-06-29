@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label for="link_gbr">Gambar:</label>
-                <input type="file" class="form-control" id="link_gbr" name="link_gbr">
+                <input type="file" class="form-control" id="link_gbr" name="link_gbr" accept=".jpg,.jpeg,.png">
                 <!-- Menampilkan URL gambar sebagai teks -->
                 <p>URL Gambar: {{ Storage::url($crew->link_gbr) }}</p>
             </div>

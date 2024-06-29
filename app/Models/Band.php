@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Konsep extends Model
+class Band extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -18,4 +18,5 @@ class Konsep extends Model
     {
         return $this->hasMany(Paket::class);
     }
+
 }

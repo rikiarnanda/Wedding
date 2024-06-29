@@ -22,25 +22,30 @@
                 </tr>
             </thead>
             <tbody>
-
+            @foreach ($konseps as $ksp)
                 <tr>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">
-
+                    {{ $loop->index + 1 }}
                     </td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">
-
+                    {{ $ksp->nama }}
                     </td>
-                    <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400"></td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">
+                    {{ $ksp->deskripsi }}
+                    </td>
+                    <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">
+                    <a href="{{ asset('storage/konsep/' . $ksp->gambar) }}" target="_blank">Lihat Gambar</a>
                     </td>
                     <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
-                        <a href="" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
-                        <form method="POST" action="" style="display:inline;">
+                        <a href="{{ route('konsep.edit', ['id' => $ksp->id]) }}" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
+                        <form method="POST" action="{{ route('konsep.delete', ['id' => $ksp->id]) }}" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-500 transition-all">Delete</button>
                         </form>
                     </td>
                 </tr>
-
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -131,27 +131,27 @@
                         </summary>
                         <ul class="mt-2 space-y-1 px-4">
                             <li>
-                                <a href="{{ route('konsep.index') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('konsep') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     Konsep
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('band.index') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('band') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     Band
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('MUA.index') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('mua') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     MUA
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('dekorasi.index') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('dekorasi') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     Dekorasi
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('dokumentasi.index') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                <a href="{{ route('dokumentasi') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                     Dokumentasi
                                 </a>
                             </li>

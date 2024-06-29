@@ -24,7 +24,7 @@
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400 w-10">{{ $loop->index + 1 }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $ven->nama_vendor }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">
-                        <a href="{{ asset($ven->link_gbr) }}" target="_blank">Lihat Gambar</a>
+                    <a href="{{ asset('storage/vendor/' . $ven->gambar) }}" target="_blank">Lihat Gambar</a>
                     </td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $ven->lokasi }}</td>
                     <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
