@@ -155,11 +155,16 @@
                                     Dokumentasi
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('mc') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                    MC
+                                </a>
+                            </li>
                         </ul>
                     </details>
                 </li>
                 <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                    <a href="{{ route('orders.admin') }}" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                         Order
                     </a>
                 </li>

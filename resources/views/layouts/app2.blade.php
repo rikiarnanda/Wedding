@@ -44,9 +44,18 @@
                 <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Produk</a>
                 <a href="{{ route('dashboard.crew') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Crew</a>
                 <a href="{{ route('dashboard.paket') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Paket</a>
+                @guest
+                <a href="{{ route('login') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Login</a>
+                @endguest
                 @auth
-                @if(auth()->user())
-                <a href="{{ route('order.index') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
+                @if(auth()->user()->role === 'user')
+                <a href="{{ route('orders.user') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="text-sm font-medium flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                        Logout
+                    </button>
+                </form>
                 @endif
                 @endauth
             </div>
@@ -63,6 +72,20 @@
                 <a href="{{ route('dashboard.vendor') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Vendor</a>
                 <a href="{{ route('dashboard.crew') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Crew</a>
                 <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paket</a>
+                @guest
+                <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Login</a>
+                @endguest
+                @auth
+                @if(auth()->user()->role === 'user')
+                <a href="{{ route('orders.user') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Order</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="block px-3 py-2 mt-1 rounded-md text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700 transition-colors duration-300">
+                        Logout
+                    </button>
+                </form>
+                @endif
+                @endauth
             </div>
         </div>
     </nav>

@@ -45,8 +45,13 @@
                 </select>
             </div>
             <div class="mb-4">
-                <label for="mc" class="block mb-2 text-sm font-medium text-gray-900">MC</label>
-                <input type="text" name="mc" id="mc" class="bg-gray-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Masukkan MC" value="{{ $paket->mc }}" required>
+                <label for="mc_id" class="block mb-2 text-sm font-medium text-gray-900">MC</label>
+                <select name="mc_id" id="mc_id" class="bg-gray-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="">Pilih MC</option>
+                    @foreach ($mcs as $mc)
+                    <option value="{{ $mc->id }}" {{ $mc->id == $paket->mc_id ? 'selected' : '' }}>{{ $mc->nama }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-4">
                 <label for="dekorasi_id" class="block mb-2 text-sm font-medium text-gray-900">Dekorasi</label>

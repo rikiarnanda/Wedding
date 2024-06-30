@@ -10,6 +10,7 @@ use App\Models\Band;
 use App\Models\Mua;
 use App\Models\Dekorasi;
 use App\Models\Dokumentasi;
+use App\Models\Mc;
 use Illuminate\Http\Request;
 
 class PaketController extends Controller
@@ -28,7 +29,8 @@ class PaketController extends Controller
         $muas = Mua::all();
         $dekorasis = Dekorasi::all();
         $dokumentasis = Dokumentasi::all();
-        return view('paket.create', compact('vendors', 'konseps', 'bands', 'muas', 'dekorasis', 'dokumentasis'));
+        $mcs = Mc::all();
+        return view('paket.create', compact('vendors', 'konseps', 'bands', 'muas', 'dekorasis', 'dokumentasis', 'mcs'));
     }
 
     public function store(Request $request)
@@ -36,7 +38,7 @@ class PaketController extends Controller
         $request->validate([
             'nama_paket' => 'required',
             'gbr_paket' => 'required|image|mimes:jpeg,png,jpg|max:3072', // Validasi file gambar
-            'mc' => 'required',
+            'mc_id' => 'required|exists:mcs,id',
             'harga' => 'required',
             'vendor_id' => 'required|exists:vendors,id',
             'konsep_id' => 'required|exists:konseps,id',
@@ -48,7 +50,7 @@ class PaketController extends Controller
 
         $paket = new Paket;
         $paket->nama_paket = $request->nama_paket;
-        $paket->mc = $request->mc;
+        $paket->mc_id = $request->mc_id;
         $paket->harga = $request->harga;
         $paket->vendor_id = $request->vendor_id;
         $paket->konsep_id = $request->konsep_id;
@@ -79,10 +81,11 @@ class PaketController extends Controller
         $muas = Mua::all();
         $dekorasis = Dekorasi::all();
         $dokumentasis = Dokumentasi::all();
+        $mcs = Mc::all();
         if (!$paket) {
             return redirect()->route('paket')->with('error', 'Paket not found.');
         }
-        return view('paket.edit', compact('paket', 'vendors', 'konseps', 'bands', 'muas', 'dekorasis', 'dokumentasis'));
+        return view('paket.edit', compact('paket', 'vendors', 'konseps', 'bands', 'muas', 'dekorasis', 'dokumentasis', 'mcs'));
     }
 
     public function update(Request $request, $id)
@@ -90,7 +93,7 @@ class PaketController extends Controller
         $request->validate([
             'nama_paket' => 'required',
             'gbr_paket' => 'sometimes|image|mimes:jpeg,png,jpg|max:3072', // Validasi file gambar hanya jika file baru diupload
-            'mc' => 'required',
+            'mc_id' => 'required|exists:mcs,id',
             'harga' => 'required',
             'vendor_id' => 'required|exists:vendors,id',
             'konsep_id' => 'required|exists:konseps,id',
@@ -106,7 +109,7 @@ class PaketController extends Controller
         }
 
         $paket->nama_paket = $request->nama_paket;
-        $paket->mc = $request->mc;
+        $paket->mc_id = $request->mc_id;
         $paket->harga = $request->harga;
         $paket->vendor_id = $request->vendor_id;
         $paket->konsep_id = $request->konsep_id;
@@ -127,6 +130,7 @@ class PaketController extends Controller
 
         return redirect()->route('paket')->with('success', 'Paket updated successfully.');
     }
+
 
     public function destroy(Paket $paket, $id)
     {

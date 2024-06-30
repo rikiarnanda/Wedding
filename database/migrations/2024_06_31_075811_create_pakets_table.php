@@ -29,7 +29,10 @@ return new class extends Migration
                 ->constrained('muas') // Pastikan ini mengacu pada nama tabel yang benar
                 ->onDelete('cascade')   // CASCADE pada DELETE
                 ->onUpdate('cascade');
-            $table->string('mc');
+            $table->foreignId('mc_id')
+                ->constrained('mcs') // Pastikan ini mengacu pada nama tabel yang benar
+                ->onDelete('cascade')   // CASCADE pada DELETE
+                ->onUpdate('cascade');
             $table->foreignId('dekorasi_id')
                 ->constrained('dekorasis') // Pastikan ini mengacu pada nama tabel yang benar
                 ->onDelete('cascade')   // CASCADE pada DELETE
