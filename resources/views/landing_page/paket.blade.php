@@ -9,7 +9,7 @@
         @foreach ($pakets as $paket)
         <div class="border rounded-lg p-4 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div class="h-48 overflow-hidden rounded-lg mb-4">
-                <img src="{{ asset($paket->gbr_paket) }}" alt="{{ $paket->nama_paket }}" class="w-full h-full object-cover">
+                <img src="{{ asset($paket->gbr_paket) }}" alt="{{ $paket->nama_paket }}" class="w-full h-full object-cover object-top">
             </div>
             <h2 class="text-xl font-semibold text-amber-500 text-left">{{ $paket->nama_paket }}</h2>
             <div class="mt-4">

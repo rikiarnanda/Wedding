@@ -20,7 +20,7 @@ class OrderController extends Controller
     public function editStatus($id)
     {
         $order = Order::findOrFail($id);
-        return view('order.admin.edit', compact('orders'));
+        return view('order.admin.edit', compact('order'));
     }
 
     public function updateStatus(Request $request, $id)

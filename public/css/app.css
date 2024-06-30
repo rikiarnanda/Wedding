@@ -573,6 +573,10 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -654,6 +658,18 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-\[\] {
+  height: ;
+}
+.h-\[150px\] {
+  height: 150px;
+}
+.h-\[10px\] {
+  height: 10px;
+}
+.h-\[100px\] {
+  height: 100px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -687,6 +703,18 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[\] {
+  width: ;
+}
+.w-\[200px\] {
+  width: 200px;
+}
+.w-\[30px\] {
+  width: 30px;
+}
+.w-\[150px\] {
+  width: 150px;
 }
 .max-w-md {
   max-width: 28rem;
@@ -755,6 +783,9 @@ video {
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-2 {
+  gap: 0.5rem;
 }
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -894,6 +925,10 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-top {
+  -o-object-position: top;
+     object-position: top;
+}
 .p-10 {
   padding: 2.5rem;
 }
@@ -914,6 +949,9 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-1 {
+  padding: 0.25rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -974,6 +1012,14 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .pb-3 {
   padding-bottom: 0.75rem;
@@ -1196,6 +1242,18 @@ video {
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.hover\:text-amber-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity));
 }
 .hover\:shadow-xl:hover {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);

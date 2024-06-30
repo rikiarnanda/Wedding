@@ -6,7 +6,7 @@
 <div class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="max-w-md w-full bg-white rounded-lg shadow-md overflow-hidden">
         <div class="p-4">
-            <img class="w-full h-48 object-cover" src="{{ asset('images/hero.jpg')}}" alt="Product Image">
+            <img src="{{ asset($paket->gbr_paket) }}" alt="{{ $paket->nama_paket }}" class="w-full h-full object-cover">
             <h2 class="text-xl font-semibold text-gray-900 mt-4">{{ $paket->nama_paket }}</h2>
             <span class="bg-amber-400 text-black text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">{{ $paket->status }}</span>
             <form action="{{ route('user.orders.store') }}" method="POST">

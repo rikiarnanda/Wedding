@@ -73,14 +73,14 @@
                 <a href="{{ route('dashboard.crew') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Crew</a>
                 <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paket</a>
                 @guest
-                <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Login</a>
+                <a href="{{ route('login') }}" class="block px-3 py-2 bg-amber-300 rounded-md text-base font-medium text-white hover:bg-amber-400 transition-colors duration-300">Login</a>
                 @endguest
                 @auth
                 @if(auth()->user()->role === 'user')
                 <a href="{{ route('orders.user') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Order</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="block px-3 py-2 mt-1 rounded-md text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700 transition-colors duration-300">
+                    <button type="submit" class="block bg-amber-300 px-3 py-2 mt-1 rounded-md text-sm font-medium text-white  hover:bg-amber-400 text-gray-700 transition-colors duration-300">
                         Logout
                     </button>
                 </form>

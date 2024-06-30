@@ -75,7 +75,7 @@
             <div class="border rounded-lg p-4 text-center bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-amber-500">{{ $dokumen->nama }}</h2>
                 <div class="h-48 overflow-hidden rounded-lg mb-4">
-                    <img src="{{ Storage::url('dokumentasi/' . $dokumen->gambar) }}" alt="{{ $dokumen->nama }}" class="w-full h-full object-cover center 80%">
+                    <img src="{{ Storage::url('dokumentasi/' . $dokumen->gambar) }}" alt="{{ $dokumen->nama }}" class="w-full h-full object-cover object-top">
                 </div>
                 <p class="text-center w-[450px]">{{ $dokumen->deskripsi }}</p>
             </div>
