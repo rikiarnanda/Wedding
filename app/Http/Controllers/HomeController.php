@@ -41,7 +41,8 @@ class HomeController extends Controller
 
     public function paket()
     {
-        $pakets = Paket::all();
+        $pakets = Paket::with('konsep', 'band', 'mua', 'dekorasi', 'dokumentasi', 'vendor')
+            ->get();
         return view('landing_page.paket', compact('pakets'));
     }
 }

@@ -8,7 +8,7 @@
     <div class="w-[600px] mb-10 ml-10 p-5 flex flex-col justify-end text-center bg-white bg-opacity-85 shadow-md border border-gray-600 rounded-lg md:text-left">
         <h1 class="text-3xl font-bold text-gray-900">KIKI Wedding Terbaik di MEDAN</h1>
         <p class="text-gray-600 my-4">Beli cincin di pasar lama Cincin cantik untuk si dia, Kenalin ini Wedding Organizer Jamin buat acara wedding jadi ceria.</p>
-        <button class="w-fit bg-yellow-500 text-white px-3 py-2 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Hubungi Kami</button>
+        <a href="{{ route('dashboard.paket') }}" class="w-fit bg-yellow-500 text-white px-3 py-2 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Mulai Booking</a>
     </div>
 </div>
 
@@ -99,19 +99,9 @@
             @foreach($pakets as $paket)
             <div class="bg-white bg-opacity-70 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300 text-center">
                 <h3 class="text-lg font-bold text-gray-900">{{ $paket->nama_paket }}</h3>
-                <p class="text-gray-700 mb-4">{{ $paket->harga }}</p>
-                <ul class="text-gray-600">
-                    @foreach(explode(',', $paket->detail) as $detail)
-                    <li class="flex justify-between items-center">
-                        <span class="mr-2">{{ $detail }}</span>
-                        <svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </li>
-                    @endforeach
-                </ul>
-                <button class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">Booking
-                    Sekarang</button>
+                <p class="text-gray-700 mb-4">Rp. {{ number_format($paket->harga, 0, ',', '.') }}</p>
+                <a href="{{ route('dashboard.paket') }}" class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">Booking
+                    Sekarang</a>
             </div>
             @endforeach
         </div>

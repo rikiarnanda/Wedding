@@ -35,7 +35,7 @@ class PaketController extends Controller
     {
         $request->validate([
             'nama_paket' => 'required',
-            'gbr_paket' => 'required|image|mimes:jpeg,png,jpg|max:3072', // Validasi file gambar
+            'gbr_paket' => 'required|image|mimes:jpeg,png,jpg|max:6072', // Validasi file gambar
             'mc' => 'required',
             'harga' => 'required',
             'vendor_id' => 'required|exists:vendors,id',

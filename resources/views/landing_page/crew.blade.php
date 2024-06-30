@@ -9,7 +9,7 @@
         @foreach ($crews as $crew)
         <div class="border rounded-lg p-4 text-center bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div class="h-48 overflow-hidden rounded-lg mb-4">
-                <img src="{{ asset($crew->link_gbr) }}" alt="{{ $crew->nama }}" class="w-full h-full object-cover">
+                <img src="{{ asset($crew->link_gbr) }}" alt="{{ $crew->nama }}" class="w-full h-full object-cover center 80%">
             </div>
             <h2 class="text-xl font-semibold text-amber-500">{{ $crew->nama }}</h2>
             <p class="text-gray-700">{{ $crew->posisi }}</p>

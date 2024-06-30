@@ -23,7 +23,7 @@ class VendorController extends Controller
     {
         $request->validate([
             'nama_vendor' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:5072',
             'lokasi' => 'required'
         ]);
 

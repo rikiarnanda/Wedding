@@ -26,7 +26,7 @@ class KonsepController extends Controller
         $request->validate([
             'nama' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072' // 3MB = 3072KB
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:5072' // 3MB = 3072KB
         ]);
 
         $path = $request->file('gambar')->store('konsep', 'public');

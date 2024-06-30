@@ -38,7 +38,7 @@
     <nav class="bg-white p-3 border-b border-gray-200 fixed w-full z-10">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300">Wedding Organizer</a>
+                <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300">KIKI Wedding</a>
             </div>
             <div class="hidden md:flex space-x-4">
                 <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Produk</a>
