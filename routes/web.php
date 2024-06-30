@@ -113,7 +113,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('admin.orders.update_status');
 
     // Route untuk user
-    Route::get('/orders', [OrderController::class, 'orderUser'])->name('orders.user')->middleware('auth', 'user');
+    Route::get('/orders/user', [OrderController::class, 'orderUser'])->name('orders.user');
     Route::get('/orders/create/{id}', [OrderController::class, 'create'])->name('user.orders.create');
     Route::post('/orders/store', [OrderController::class, 'store'])->name('user.orders.store');
 });
