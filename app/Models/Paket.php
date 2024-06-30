@@ -19,7 +19,7 @@ class Paket extends Model
         'mua_id',
         'dekorasi_id',
         'dokumentasi_id',
-        'mc'
+        'mc_id'
     ];
 
     public function vendor()
@@ -50,5 +50,15 @@ class Paket extends Model
     public function dokumentasi()
     {
         return $this->belongsTo(Dokumentasi::class);
+    }
+
+    public function mc()
+    {
+        return $this->belongsTo(Mc::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\CrewController;
@@ -14,10 +13,12 @@ use App\Http\Controllers\Admin\TestimoniController;
 use App\Http\Controllers\Admin\BandController;
 use App\Http\Controllers\Admin\MUAController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\McController;
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('daftar');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
@@ -97,8 +98,24 @@ Route::middleware('auth')->group(function () {
     Route::put('/mua/update/{id}', [MUAController::class, 'updateMUA'])->name('mua.update');
     Route::delete('/mua/{id}', [MUAController::class, 'deleteMUA'])->name('mua.delete');
 
+    // MC
+    Route::get('/mc', [McController::class, 'mc'])->name('mc');
+    Route::get('/mc/create', [McController::class, 'create'])->name('mc.create');
+    Route::post('/mc', [McController::class, 'store'])->name('mc.store');
+    Route::get('/mc/edit/{id}', [McController::class, 'editMc'])->name('mc.edit');
+    Route::put('/mc/update/{id}', [McController::class, 'updateMc'])->name('mc.update');
+    Route::delete('/mc/{id}', [McController::class, 'deleteMc'])->name('mc.delete');
+
     //Order
-    Route::resource('/order', OrderController::class);
+    // Route untuk admin
+    Route::get('/orders/admin', [OrderController::class, 'orderAdmin'])->name('orders.admin')->middleware('auth', 'admin');
+    Route::get('/orders/{id}/edit', [OrderController::class, 'editStatus'])->name('admin.orders.edit');
+    Route::put('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('admin.orders.update_status');
+
+    // Route untuk user
+    Route::get('/orders', [OrderController::class, 'orderUser'])->name('orders.user')->middleware('auth', 'user');
+    Route::get('/orders/create/{id}', [OrderController::class, 'create'])->name('user.orders.create');
+    Route::post('/orders/store', [OrderController::class, 'store'])->name('user.orders.store');
 });
 
 Route::get('/', function () {
