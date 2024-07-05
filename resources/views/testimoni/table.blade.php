@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="w-full bg-gray-50 h-screen pl-52 pr-12 py-32 mx-10">
-    <h1 class="text-xl font-bold mb-4 text-gray-600">Daftar Testimonit</h1>
+    <h1 class="text-xl font-bold mb-4 text-gray-600">Daftar Testimoni</h1>
     <table id="my-datatable" class="display bg-gray-100 text-sm w-full p-10 rounded-lg mt-10 shadow-md">
         <thead class="bg-gray-300">
             <tr>

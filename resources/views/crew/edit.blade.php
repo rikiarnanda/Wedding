@@ -31,7 +31,10 @@
                 </select>
             </div>
             <div>
-                <button type="submit" class="inline-block px-4 py-3 bg-amber-400 hover:bg-amber-300 rounded-lg w-full text-sm text-white">Simpan</button>
+                <button type="submit" class="inline-block px-4 py-3 bg-amber-400 hover:bg-amber-300 rounded-lg w-full text-sm text-white mb-4">Simpan</button>
+            </div>
+            <div class="mt-4 flex justify-center items-center">
+                <a href="{{ route('crew') }}" class="px-4 py-3 bg-amber-400 rounded-lg hover:bg-amber-300 w-full text-sm text-center text-white hover:text-black hover:font-bold hover:shadow-md">Kembali</a>
             </div>
         </form>
     </div>

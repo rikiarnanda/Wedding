@@ -23,7 +23,10 @@
             </div>
             <div>
                 <!-- Adjusted focus state styling -->
-                <button type="submit" class="px-4 py-3 bg-amber-400 rounded-lg hover:bg-amber-300 w-full text-sm text-white">Simpan</button>
+                <button type="submit" class="px-4 py-3 bg-amber-400 rounded-lg hover:bg-amber-300 w-full text-sm text-white mb-4">Simpan</button>
+            </div>
+            <div class="mt-4 flex justify-center items-center">
+                <a href="{{ route('vendor') }}" class="px-4 py-3 bg-amber-400 rounded-lg hover:bg-amber-300 w-full text-sm text-center text-white hover:text-black hover:font-bold hover:shadow-md">Kembali</a>
             </div>
         </form>
     </div>
