@@ -15,8 +15,11 @@
                 <span class="text-black text-xs font-semibold p-1 w-fit rounded">Perkiraan bulan: {{ $order->bulan }}</span>
                 @if ($order->status == 'Orderan Diterima')
                 <div class="mt-2">
+
                     <p class="text-gray-500 text-sm mb-2">Screenshot orderan dan kirim ke telegram</p>
-                    <a href="https://t.me/omy_bot_wedding" class="bg-amber-300 font-semibold hover:bg-amber-400 px-3 py-2 rounded-md my-2">Chat Admin</a>
+                    <a href="https://t.me/omy_bot_wedding" target="_blank" class="bg-amber-300 font-semibold hover:bg-amber-400 px-3 py-2 rounded-md my-2">Chat Admin Telegram</a>
+
+                    <a href="https://wa.me/+6281269048944?text=Halo%adminberikut%bukti%tanda%diterima%saya:" target="_blank" class="bg-amber-300 font-semibold hover:bg-amber-400 px-3 py-2 rounded-md my-2">Chat Admin Wa</a>
                 </div>
                 @endif
             </div>

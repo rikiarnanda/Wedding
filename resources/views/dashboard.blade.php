@@ -3,9 +3,10 @@
 @section('title', 'Home')
 
 @section('content')
+
 <!-- Section: Hero -->
 <div class="h-[450px] flex flex-row justify-start items-end bg-cover" style="background-image: url('images/hero.jpg'); background-position: center 80%;">
-    <div class="w-[600px] mb-10 ml-10 p-5 flex flex-col justify-end text-center bg-white bg-opacity-85 shadow-md border border-gray-600 rounded-lg md:text-left">
+    <div class="animate__animated animate__fadeInRight w-[600px] mb-10 ml-10 p-5 flex flex-col justify-end text-center bg-white bg-opacity-85 shadow-md border border-gray-600 rounded-lg md:text-left">
         <h1 class="text-3xl font-bold text-gray-900">KIKI Wedding Terbaik di MEDAN</h1>
         <p class="text-gray-600 my-4">Beli cincin di pasar lama Cincin cantik untuk si dia, Kenalin ini Wedding Organizer Jamin buat acara wedding jadi ceria.</p>
         <a href="{{ route('dashboard.paket') }}" class="w-fit bg-yellow-500 text-white px-3 py-2 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Mulai Booking</a>
@@ -16,30 +17,30 @@
 <!-- Section: Existing Cards -->
 <section x-data="{ show: false }" x-intersect="show = true" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" class="min-h-screen flex items-center py-12 bg-gray-100">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="animate__animated animate__fadeInDown grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Vendor Card -->
-            <a href="/dashboard/vendor" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <a data-aos="flip-up" data-aos-duration="1000" href="/dashboard/vendor" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                 <img src="{{ asset('images/vendor.jpeg') }}" alt="Vendor" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-bold text-gray-900">Vendor</h3>
-                    <p class="text-gray-600">Vendor terbaik yang sudah lama berkerja sama dalam menciptakan moment
+                    <p data-aos="fade-up" class="text-gray-600">Vendor terbaik yang sudah lama berkerja sama dalam menciptakan moment
                         terindah.</p>
                 </div>
             </a>
             <!-- Crew Card -->
-            <a href="/dashboard/crew" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <a data-aos="flip-up" data-aos-duration="1000" href="/dashboard/crew" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                 <img src="{{ asset('images/crew.jpg') }}" alt="Crew" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-bold text-gray-900">Crew</h3>
-                    <p class="text-gray-600">Crew yang membantu dalam menciptakan moment terindah anda.</p>
+                    <p data-aos="fade-up" class="text-gray-600">Crew yang membantu dalam menciptakan moment terindah anda.</p>
                 </div>
             </a>
             <!-- Paketan Card -->
-            <a href="/dashboard/paketan" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <a data-aos="flip-up" data-aos-duration="1000" href="/dashboard/paketan" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                 <img src="{{ asset('images/Paketan.jpg') }}" alt="Paketan" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-bold text-gray-900">Paketan</h3>
-                    <p class="text-gray-600">Paketan yang dapat mewujudkan impian pernikahan anda.</p>
+                    <p data-aos="fade-up" class="text-gray-600">Paketan yang dapat mewujudkan impian pernikahan anda.</p>
                 </div>
             </a>
         </div>
@@ -49,7 +50,7 @@
 <!-- Section: Keunggulan WO -->
 <section x-data="{ show: false }" x-intersect="show = true" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" class="min-h-screen flex items-center py-12 bg-gradient-to-r from-yellow-500 to-yellow-300">
     <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8 text-white">Keunggulan Wedding Organizer Kami</h2>
+        <h2 data-aos="fade-down"  class="text-3xl font-bold mb-8 text-white">Keunggulan Wedding Organizer Kami</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white bg-opacity-70 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
                 <div class="flex justify-center mb-4">
@@ -59,7 +60,7 @@
                     </svg>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mb-4">Profesionalisme</h3>
-                <p class="text-gray-600">Kami menyediakan tim profesional yang berpengalaman dalam menangani berbagai jenis acara pernikahan, memastikan setiap detail berjalan dengan sempurna.</p>
+                <p data-aos="fade-right" class="text-gray-600">Kami menyediakan tim profesional yang berpengalaman dalam menangani berbagai jenis acara pernikahan, memastikan setiap detail berjalan dengan sempurna.</p>
             </div>
             <div class="bg-white bg-opacity-70 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
                 <div class="flex justify-center mb-4">
@@ -68,7 +69,7 @@
                     </svg>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mb-4">Kreativitas</h3>
-                <p class="text-gray-600">Kami selalu berinovasi dan menawarkan ide-ide kreatif untuk membuat acara
+                <p data-aos="fade-up" class="text-gray-600">Kami selalu berinovasi dan menawarkan ide-ide kreatif untuk membuat acara
                     pernikahan Anda unik dan tak terlupakan.</p>
             </div>
             <div class="bg-white bg-opacity-70 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
@@ -83,7 +84,7 @@
                     </svg>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mb-4">Pelayanan</h3>
-                <p class="text-gray-600">Kami berkomitmen untuk memberikan pelayanan terbaik kepada setiap klien kami,
+                <p data-aos="fade-left" class="text-gray-600">Kami berkomitmen untuk memberikan pelayanan terbaik kepada setiap klien kami,
                     memastikan kepuasan dan kenyamanan Anda adalah prioritas utama kami.</p>
             </div>
         </div>
@@ -132,6 +133,11 @@
         </div>
     </div>
 </section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

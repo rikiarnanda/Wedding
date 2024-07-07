@@ -5,24 +5,24 @@
 
 @section('content')
 <div class="container bg-gray-50 mx-auto py-8">
-    <h1 class="text-3xl font-bold mb-8 text-center text-amber-500">Vendor Kami</h1>
+    <h1 class="animate__animated animate__fadeInUp text-3xl font-bold mb-8 text-center text-amber-500">Vendor Kami</h1>
 
     {{-- First row: Vendors --}}
-    <div class="flex flex-row overflow-hidden justify-center gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
         @foreach ($vendors as $vendor)
-        <div class="border rounded-lg p-4 text-center bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+        <div class="animate__animated animate__fadeInUp border rounded-lg p-4 text-center bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
             <div class="h-48 overflow-hidden rounded-lg mb-4">
-                <img src="{{ Storage::url('vendor/' . $vendor->gambar) }}" alt="{{ $vendor->nama_vendor }}" class="w-[450px] h-full object-cover">
+                <img src="{{ Storage::url('vendor/' . $vendor->gambar) }}" alt="{{ $vendor->nama_vendor }}" class="w-full h-full object-cover">
             </div>
             <h2 class="text-xl font-semibold text-amber-500">{{ $vendor->nama_vendor }}</h2>
             <p class="text-gray-700 mb-4">{{ $vendor->lokasi }}</p>
-            <p class="text-center w-[450px]">{{ $vendor->deskripsi }}</p>
+            <p class="text-center">{{ $vendor->deskripsi }}</p>
         </div>
         @endforeach
     </div>
 
-    <div class="flex flex flex-col gap-8">
-        <h1 class="text-3xl font-semibold my-3 text-center text-amber-500">Band</h1>
+    <div class="grid flex flex flex-col gap-8">  
+        <h1 class="animate__animated animate__fadeInUp text-3xl font-semibold my-3 text-center text-amber-500">Band</h1>
         <div class="flex flex-row overflow-hidden justify-center gap-8">
             @foreach ($bands as $band)
             <div class="border rounded-lg p-4 text-center bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
@@ -84,3 +84,8 @@
     </div>
 </div>
 @endsection
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>

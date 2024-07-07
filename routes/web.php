@@ -56,6 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/testimoni', [TestimoniController::class, 'testimoni'])->name('testimoni');
     Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('testimoni.create');
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
+    Route::get('/testimoni/edit/{id}',[TestimoniController::class, 'editTestimoni'])->name('testimoni.edit');
+    Route::put('/testimoni/update/{id}',[TestimoniController::class, 'updateTestimoni'])->name('testimoni.update');
     Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
 
     // Konsep
