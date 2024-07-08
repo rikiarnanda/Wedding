@@ -4,20 +4,14 @@
 
 @section('content')
 <!-- Section: Hero -->
-<section x-data="{ show: false }" x-intersect="show = true" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" class="min-h-screen flex items-center bg-white">
-    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center px-4 py-12">
-        <div class="w-full md:w-1/2 text-center md:text-left">
-            <h1 class="text-4xl font-bold text-gray-900">Wedding Organizer Terbaik di MEDAN</h1>
-            <p class="text-gray-600 my-4 w-1/2">Beli cincin di pasar lama Cincin cantik untuk si dia, Kenalin ini Wedding Organizer Jamin
-                buat acara wedding jadi ceria.</p>
-            <button class="bg-yellow-500 text-white px-6 py-3 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Hubungi
-                Kami</button>
-        </div>
-        <div class="w-full md:w-1/2">
-            <img src="{{ asset('images/hero.jpg') }}" alt="Wedding Organizer" class="w-full h-auto rounded-lg shadow-lg">
-        </div>
+<div class="h-[450px] flex flex-row justify-start items-end bg-cover" style="background-image: url('images/hero.jpg'); background-position: center 80%;">
+    <div class="w-[600px] mb-10 ml-10 p-5 flex flex-col justify-end text-center bg-white bg-opacity-85 shadow-md border border-gray-600 rounded-lg md:text-left">
+        <h1 class="text-3xl font-bold text-gray-900">KIKI Wedding Terbaik di MEDAN</h1>
+        <p class="text-gray-600 my-4">Beli cincin di pasar lama Cincin cantik untuk si dia, Kenalin ini Wedding Organizer Jamin buat acara wedding jadi ceria.</p>
+        <a href="{{ route('dashboard.paket') }}" class="w-fit bg-yellow-500 text-white px-3 py-2 rounded shadow-md hover:bg-yellow-600 transition-colors duration-300">Mulai Booking</a>
     </div>
-</section>
+</div>
+
 
 <!-- Section: Existing Cards -->
 <section x-data="{ show: false }" x-intersect="show = true" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" class="min-h-screen flex items-center py-12 bg-gray-100">
@@ -59,7 +53,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white bg-opacity-70 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
                 <div class="flex justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px bg-red-200">
                         <path d="M 14.9303 2.5 V 8.4 C 14.9303 8.84 14.4103 9.06 14.0903 8.77 L 12.3403 7.16 C 12.1503 6.98 11.8503 6.98 11.6603 7.16 L 9.91031 8.76 C 9.59031 9.06 9.07031 8.83 9.07031 8.4 V 2.5 C 9.07031 2.22 9.29031 2 9.57031 2 H 14.4303 C 14.7103 2 14.9303 2.22 14.9303 2.5 Z" fill="#292D32" />
                         <path d="M 16.98 2.05891 C 16.69 2.01891 16.43 2.26891 16.43 2.55891 V 8.57891 C 16.43 9.33891 15.98 10.0289 15.28 10.3389 C 14.58 10.6389 13.77 10.5089 13.21 9.98891 L 12.34 9.18891 C 12.15 9.00891 11.86 9.00891 11.66 9.18891 L 10.79 9.98891 C 10.43 10.3289 9.96 10.4989 9.49 10.4989 C 9.23 10.4989 8.97 10.4489 8.72 10.3389 C 8.02 10.0289 7.57 9.33891 7.57 8.57891 V 2.55891 C 7.57 2.26891 7.31 2.01891 7.02 2.05891 C 4.22 2.40891 3 4.29891 3 6.99891 V 16.9989 C 3 19.9989 4.5 21.9989 8 21.9989 H 16 C 19.5 21.9989 21 19.9989 21 16.9989 V 6.99891 C 21 4.29891 19.78 2.40891 16.98 2.05891 Z M 17.5 18.7489 H 9 C 8.59 18.7489 8.25 18.4089 8.25 17.9989 C 8.25 17.5889 8.59 17.2489 9 17.2489 H 17.5 C 17.91 17.2489 18.25 17.5889 18.25 17.9989 C 18.25 18.4089 17.91 18.7489 17.5 18.7489 Z M 17.5 14.7489 H 13.25 C 12.84 14.7489 12.5 14.4089 12.5 13.9989 C 12.5 13.5889 12.84 13.2489 13.25 13.2489 H 17.5 C 17.91 13.2489 18.25 13.5889 18.25 13.9989 C 18.25 14.4089 17.91 14.7489 17.5 14.7489 Z" fill="#292D32" />
                     </svg>
@@ -105,19 +99,9 @@
             @foreach($pakets as $paket)
             <div class="bg-white bg-opacity-70 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300 text-center">
                 <h3 class="text-lg font-bold text-gray-900">{{ $paket->nama_paket }}</h3>
-                <p class="text-gray-700 mb-4">{{ $paket->harga }}</p>
-                <ul class="text-gray-600">
-                    @foreach(explode(',', $paket->detail) as $detail)
-                    <li class="flex justify-between items-center">
-                        <span class="mr-2">{{ $detail }}</span>
-                        <svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </li>
-                    @endforeach
-                </ul>
-                <button class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">Booking
-                    Sekarang</button>
+                <p class="text-gray-700 mb-4">Rp. {{ number_format($paket->harga, 0, ',', '.') }}</p>
+                <a href="{{ route('dashboard.paket') }}" class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">Booking
+                    Sekarang</a>
             </div>
             @endforeach
         </div>

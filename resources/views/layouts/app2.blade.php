@@ -38,12 +38,26 @@
     <nav class="bg-white p-3 border-b border-gray-200 fixed w-full z-10">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300">Wedding Organizer</a>
+                <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300">KIKI Wedding</a>
             </div>
             <div class="hidden md:flex space-x-4">
-                <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Vendor</a>
+                <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Produk</a>
                 <a href="{{ route('dashboard.crew') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Crew</a>
-                <a href="{{ route('dashboard.paket') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Paketan</a>
+                <a href="{{ route('dashboard.paket') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Paket</a>
+                @guest
+                <a href="{{ route('login') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Login</a>
+                @endguest
+                @auth
+                @if(auth()->user()->role === 'user')
+                <a href="{{ route('orders.user') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Order</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="text-sm font-medium flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                        Logout
+                    </button>
+                </form>
+                @endif
+                @endauth
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
@@ -53,16 +67,28 @@
                 </button>
             </div>
         </div>
-    </nav>
-
-    </nav>
-    <div id="mobile-menu" class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="{{ route('dashboard.vendor') }}"" class=" block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Vendor</a>
-            <a href="{{ route('dashboard.crew') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Crew</a>
-            <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paketan</a>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white border border-gray-300 rounded-md shadow-md">
+                <a href="{{ route('dashboard.vendor') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Vendor</a>
+                <a href="{{ route('dashboard.crew') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Crew</a>
+                <a href="{{ route('dashboard.paket') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Paket</a>
+                @guest
+                <a href="{{ route('login') }}" class="block px-3 py-2 bg-amber-300 rounded-md text-base font-medium text-white hover:bg-amber-400 transition-colors duration-300">Login</a>
+                @endguest
+                @auth
+                @if(auth()->user()->role === 'user')
+                <a href="{{ route('orders.user') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-500 transition-colors duration-300">Order</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="block bg-amber-300 px-3 py-2 mt-1 rounded-md text-sm font-medium text-white  hover:bg-amber-400 text-gray-700 transition-colors duration-300">
+                        Logout
+                    </button>
+                </form>
+                @endif
+                @endauth
+            </div>
         </div>
-    </div>
+    </nav>
 
     <div class="pt-16">
         <div class="container mx-auto px-4 py-8">
@@ -70,7 +96,7 @@
         </div>
     </div>
 
-    <a href="#" class="fixed bottom-4 right-4 bg-blue-500 p-3 rounded-full shadow-lg hover:bg-blue-600 focus:bg-blue-600 transition-colors duration-300">
+    <a href="https://t.me/kikiorganizer_bot" class="fixed bottom-4 right-4 bg-blue-500 p-3 rounded-full shadow-lg hover:bg-blue-600 focus:bg-blue-600 transition-colors duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
             <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z" />
             <path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z" />

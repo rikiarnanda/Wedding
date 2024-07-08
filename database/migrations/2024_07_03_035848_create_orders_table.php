@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pakets', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_paket');
-            $table->string('gbr_paket');
-            $table->string('detail');
-            $table->string('harga');
-            $table->foreignId('vendor_id')
-                ->constrained('vendors') // Pastikan ini mengacu pada nama tabel yang benar
-                ->onDelete('cascade')   // CASCADE pada DELETE
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onDelete('restrict')
                 ->onUpdate('cascade');
+            $table->foreignId('paket_id')
+                ->constrained('pakets')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+            $table->string('bulan');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pakets');
+        Schema::dropIfExists('orders');
     }
 };

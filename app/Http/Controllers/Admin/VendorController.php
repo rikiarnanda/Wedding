@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
 
@@ -22,15 +23,16 @@ class VendorController extends Controller
     {
         $request->validate([
             'nama_vendor' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:3072', // 3MB = 3072KB
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:5072',
             'lokasi' => 'required'
         ]);
 
-        $path = $request->file('gambar')->store('public/vendor');
+        $path = $request->file('gambar')->store('vendor', 'public');
+        $filename = basename($path);
 
         Vendor::create([
             'nama_vendor' => $request->nama_vendor,
-            'gambar' => $path,
+            'gambar' => $filename,
             'lokasi' => $request->lokasi
         ]);
 
@@ -62,8 +64,9 @@ class VendorController extends Controller
         $vendor->nama_vendor = $request->nama_vendor;
         $vendor->lokasi = $request->lokasi;
         if ($request->hasFile('gambar')) {
-            $path = $request->file('gambar')->store('public/vendor');
-            $vendor->gambar = $path;
+            $path = $request->file('gambar')->store('vendor', 'public');
+            $filename = basename($path);
+            $vendor->gambar = $filename;
         }
         $vendor->save();
 

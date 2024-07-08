@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('alamat');
+            $table->string('no_hp');
+            $table->string('email');
             $table->string('password');
-            $table->rememberToken();
+            $table->string('username');
+            $table->string('role');
             $table->timestamps();
         });
     }    
