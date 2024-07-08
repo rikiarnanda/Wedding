@@ -16,7 +16,7 @@
                 <tr>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 w-10">No</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Nama</th>
-                    <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Deskripsi</th>
+                    <th class=" px-3 py-2 font-medium text-gray-900">Deskripsi</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Gambar</th>
                     <th class="whitespace-nowrap px-3 py-2 font-medium text-gray-900">Action</th>
                 </tr>

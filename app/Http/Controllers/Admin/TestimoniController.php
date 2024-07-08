@@ -37,6 +37,27 @@ class TestimoniController extends Controller
         return redirect()->route('testimoni')->with('success', 'Testimoni created successfully.');
     }
 
+    public function editTestimoni($id)
+    {
+        $testimoni = Testimoni::find($id);
+        $pakets = Paket::all();
+        return view('testimoni.edit',compact('testimoni'));
+    }
+
+    public function updateTestimoni(Request $request, $id){
+        $request->validate([
+            'testimoni' => 'required',
+        ]);
+
+        $testimoni = Testimoni::find($id);
+        $testimoni->testimoni = $request->testimoni;
+        $testimoni->save();
+
+        return redirect()->route('testimoni')->with('success', 'Testimoni updated successfully.');
+    }
+    
+
+ 
     public function destroy(Testimoni $testimoni, $id)
     {
         $testimoni = Testimoni::find($id);

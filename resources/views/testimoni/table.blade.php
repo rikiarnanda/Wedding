@@ -54,6 +54,7 @@
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $tes->testimoni }}</td>
                     <td class="whitespace-nowrap px-3 py-2 font-medium text-gray-900 border-b border-gray-400">{{ $tes->paket->nama_paket ?? 'Paket Tidak Ditemukan' }}</td>
                     <td class="whitespace-nowrap px-3 py-3 gap-3 border-b border-gray-400">
+                        <a href="{{ route('testimoni.edit',['id' => $tes->id]) }}" class="inline-block rounded bg-amber-400 px-4 py-2 text-xs font-medium text-white hover:bg-amber-300 transition-all">Edit</a>
                         <form method="POST" action="{{ route('testimoni.destroy', ['id' => $tes->id]) }}" style="display:inline;">
                             @csrf
                             @method('DELETE')

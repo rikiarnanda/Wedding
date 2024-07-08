@@ -44,7 +44,7 @@ class OrderController extends Controller
         $order->status = $statusLabels[$request->status];
         $order->save();
 
-        return redirect()->back()->with('success', 'Status order berhasil diperbarui.');
+        return redirect()->route('orders.admin')->with('success', 'Status order berhasil diperbarui.');
     }
 
     //user

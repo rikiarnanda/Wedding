@@ -7,6 +7,8 @@
     <title>@yield('title', 'Dashboard')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .fade-in {
             animation: fadeIn 1.5s ease-in-out forwards;
@@ -37,8 +39,8 @@
 <body class="bg-white text-gray-900">
     <nav class="bg-white p-3 border-b border-gray-200 fixed w-full z-10">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300">KIKI Wedding</a>
+            <div class="flex items-center ">
+                <a href="{{ url('/') }}" class="text-2xl font-bold text-amber-500 hover:text-amber-600 transition-colors duration-300"> <img src="" alt=""> KIKI Organizer</a>
             </div>
             <div class="hidden md:flex space-x-4">
                 <a href="{{ route('dashboard.vendor') }}" class="text-gray-700 hover:text-amber-500 font-medium transition-colors duration-300">Produk</a>
@@ -96,7 +98,7 @@
         </div>
     </div>
 
-    <a href="https://t.me/kikiorganizer_bot" class="fixed bottom-4 right-4 bg-blue-500 p-3 rounded-full shadow-lg hover:bg-blue-600 focus:bg-blue-600 transition-colors duration-300">
+    <a href="https://t.me/kikiorganizer_bot" target="_blank" class="fixed bottom-4 right-4 bg-blue-500 p-3 rounded-full shadow-lg hover:bg-blue-600 focus:bg-blue-600 transition-colors duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
             <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z" />
             <path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z" />
@@ -106,6 +108,7 @@
     </a>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var mobileMenu = document.getElementById('mobile-menu');

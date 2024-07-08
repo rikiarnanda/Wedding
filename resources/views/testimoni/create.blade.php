@@ -20,7 +20,7 @@
                 </select>
             </div>
             <div>
-                <button type="submit" class="inline-block px-4 py-3 bg-amber-400 hover:bg-amber-300 rounded-lg w-full text-sm text-white">Tambahr</button>
+                <button type="submit" class="inline-block px-4 py-3 bg-amber-400 hover:bg-amber-300 rounded-lg w-full text-sm text-white">Tambah</button>
             </div>
         </form>
     </div>
