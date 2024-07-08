@@ -110,8 +110,8 @@ class OrderController extends Controller
         $message = "Halo Admin Kiki Wedding!, Order baru masuk nih! dari user: {$user->name}\nDengan Paket yang dipesan Paket: {$paket->nama_paket}\nAyo Segera di Konfirmasi Min!";
 
         $client = new Client();
-        $token = '7442963700:AAErVdQS44jq2fqiMPbKUOJoDcBzw0j4frw';
-        $chat_id = '298942118'; // Ganti dengan chat_id Telegram Anda
+        $token = 'TOKEN'; //7442963700:AAErVdQS44jq2fqiMPbKUOJoDcBzw0j4frw
+        $chat_id = 'chat_id'; // Ganti dengan chat_id Telegram Anda : 298942118
 
         $url = "https://api.telegram.org/bot{$token}/sendMessage";
 
