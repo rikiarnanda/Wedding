@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Paket;
 use App\Models\User;
+use GuzzleHttp\Client;
 
 
 class OrderController extends Controller
@@ -61,6 +62,25 @@ class OrderController extends Controller
         return view('order.user.create', compact('paket'));
     }
 
+    // public function store(Request $request)
+    // {
+    //     // Validasi input
+    //     $request->validate([
+    //         'paket_id' => 'required',
+    //         'bulan' => 'required',
+    //     ]);
+
+    //     // Buat order baru dengan status default 'Menunggu Konfirmasi'
+    //     $order = new Order();
+    //     $order->user_id = auth()->id();
+    //     $order->paket_id = $request->paket_id;
+    //     $order->bulan = $request->bulan;
+    //     $order->status = 'Menunggu Konfirmasi';
+    //     $order->save();
+
+    //     return redirect()->route('orders.user')->with('success', 'Order berhasil dibuat.');
+    // }
+
     public function store(Request $request)
     {
         // Validasi input
@@ -77,6 +97,32 @@ class OrderController extends Controller
         $order->status = 'Menunggu Konfirmasi';
         $order->save();
 
+        // Kirim notifikasi ke Telegram
+        $this->sendTelegramNotification($order);
+
         return redirect()->route('orders.user')->with('success', 'Order berhasil dibuat.');
+    }
+
+    private function sendTelegramNotification($order)
+    {
+        $user = auth()->user();
+        $paket = $order->paket;
+        $message = "Halo Admin Kiki Wedding!, Order baru masuk nih! dari user: {$user->name}\nDengan Paket yang dipesan Paket: {$paket->nama_paket}\nAyo Segera di Konfirmasi Min!";
+
+        $client = new Client();
+        $token = '7442963700:AAErVdQS44jq2fqiMPbKUOJoDcBzw0j4frw';
+        $chat_id = '298942118'; // Ganti dengan chat_id Telegram Anda
+
+        $url = "https://api.telegram.org/bot{$token}/sendMessage";
+
+        $response = $client->post($url, [
+            'form_params' => [
+                'chat_id' => $chat_id,
+                'text' => $message,
+            ],
+            'verify' => false, // Tambahkan ini untuk menonaktifkan verifikasi SSL
+        ]);
+
+        return $response;
     }
 }
